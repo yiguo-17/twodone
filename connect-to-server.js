@@ -20,7 +20,7 @@ const loadTodos = function() {
 
 }
 
-// When you're all done with the above function, call it here. We can test it works by adding a new todo manually to the JSON (watch your double quotes and commas!) and reloading the page to see if it grabbed the new data. Make sure your server is running!
+// When you're all done with the above function, call it here in the global space so it runs on page load. We can test it works by adding a new todo manually to the JSON file (watch your double quotes and commas!) and reloading the page to see if it grabbed the new data. Make sure your server is running!
 
 
 
@@ -28,13 +28,13 @@ const loadTodos = function() {
 const postTodo = function(todo) {
   // An event listener function (could be done inline instead!)
   const handleNewTodo = function() {
-    // For now, just parse the responseText and console.log it.
     // For a post, we just want to check if it posted!
     // The response if it did will just be our new todo object.
+    // So for now, just parse the responseText and console.log it.
 
   }
 
-  // Create a new XHR, add the aboe function as an event listener, and open it, just like before. Use 'POST' instead of 'GET' is the only difference so far!
+  // Create a new XHR, add the above function as an event listener, and open it, just like before. Use 'POST' instead of 'GET' is the only difference so far!
 
   // Here's where things get a bit different.
   // Create a data variable that's the JSON.stringified vesrsion of the passed-in todo object.
@@ -42,3 +42,10 @@ const postTodo = function(todo) {
   // Then, when you use xhr.send, pass in the data variable, as we're actually sending something this time!
 
 }
+
+// When you're all done with the above function, test it by wiring it up in your Add Button event listener on the front end. Call it along with your addTodo and printTodo, passing in your new todo.
+
+
+// Stretch goal: update todos with their completeness changed. Write an updateTodo function that takes in a todo from the front end, jsonnifies it, and sends it with a PUT request. The main difference from post is that we send it to todos/[id], where the id is the id of the todo we want to update.
+
+// You can test it by wiring it into your todos' click event listener. After you toggle the `todo` object's completeness, pass it to this stretch goal function. If you did it right, when you click on the todo, the JSON file will change, with the todo's `complete` changing from false to true and back.

@@ -25,7 +25,6 @@ const printTodo = function(todo) {
     for (const todo of todos) {
       if (todo.id === Number(liId)) {
         todo.complete = !todo.complete;
-        updateTodo(todo)
       }
     }
   })
@@ -61,7 +60,6 @@ document.querySelector('.add-todo').addEventListener('click', function() {
     id: todos.length,
   }
 
-  postTodo(todo);
   addTodo(todo);
   printTodo(todo);
   inputBox.value = '';
