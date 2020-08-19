@@ -35,6 +35,10 @@
       "complete": true,
       "priority": 1,
       "id": 5
+    },
+    {
+      "{\"text\":\"add a new thing\",\"priority\":2,\"complete\":false,\"id\":6}": "",
+      "id": 6
     }
   ],
   "users": [

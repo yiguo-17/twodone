@@ -29,7 +29,9 @@ loadTodos();
 const postTodo = function(todo) {
   // An event listener function (could be done inline instead!)
   const handleNewTodo = function() {
-    console.log(JSON.parse(xhr.responseText))// For a post, we just want to check if it posted!
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+  }// For a post, we just want to check if it posted!
     // The response if it did will just be our new todo object.
     // So for now, just parse the responseText and console.log it.
 
@@ -37,12 +39,12 @@ const postTodo = function(todo) {
 
   const xhr = new XMLHttpRequest();
   xhr.addEventListener('load',handleNewTodo);
-  xhr.open('POST','http://localhost:3000/todos')// Create a new XHR, add the above function as an event listener, and open it, just like before. Use 'POST' instead of 'GET' is the only difference so far!
+  xhr.open("POST",'http://localhost:3000/todos')// Create a new XHR, add the above function as an event listener, and open it, just like before. Use 'POST' instead of 'GET' is the only difference so far!
 
   // Here's where things get a bit different.
-  const todoStr = JSON.stringify(todo);// Create a data variable that's the JSON.stringified vesrsion of the passed-in todo object.
-  xhr.setRequestHeader('todos',todoStr);
-  xhr.send();
+  const str = JSON.stringify(todo);// Create a data variable that's the JSON.stringified vesrsion of the passed-in todo object.
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send(str);
   // Then use xhr.setRequestHeader to tell the server we're sending JSON. Quick bit of code, but you will have to research it!
   // Then, when you use xhr.send, pass in the data variable, as we're actually sending something this time!
 
