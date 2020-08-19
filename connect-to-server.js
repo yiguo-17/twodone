@@ -43,7 +43,7 @@ const postTodo = function(todo) {
 
   // Here's where things get a bit different.
   const str = JSON.stringify(todo);// Create a data variable that's the JSON.stringified vesrsion of the passed-in todo object.
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.setRequestHeader("Content-type", "application/json");
   xhr.send(str);
   // Then use xhr.setRequestHeader to tell the server we're sending JSON. Quick bit of code, but you will have to research it!
   // Then, when you use xhr.send, pass in the data variable, as we're actually sending something this time!
